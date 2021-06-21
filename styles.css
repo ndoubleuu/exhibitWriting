@@ -248,7 +248,7 @@ button {
 /* Header */
 header {
   width: 21rem;
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
 }
 
 h1,
@@ -259,13 +259,17 @@ h2 {
 h1 {
   font-family: "DM Serif Display", serif;
   font-size: 7rem;
-  margin: 2rem 0 0;
-  width: 30rem;
+  margin: 0;
+  width: 28rem;
   line-height: 5.5rem;
+  padding: 5rem 0 5rem 2rem;
+  border-left: 0.1rem solid #fff;
+  border-bottom: 0.1rem solid #fff;
 }
 
 h2 {
   font-size: 2rem;
+  margin-top: 3rem;
 }
 
 .help {
@@ -274,14 +278,14 @@ h2 {
   font-size: 3rem;
   position: absolute;
   right: 0;
-  top: 4.5rem;
+  top: 4rem;
   padding: 1rem;
 }
 
 /* Main */
 main {
   position: absolute;
-  top: 50%;
+  top: 35%;
   width: 100%;
 }
 
