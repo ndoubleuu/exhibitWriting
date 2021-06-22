@@ -335,7 +335,7 @@ main {
   justify-content: center;
   position: fixed;
   top: 0;
-  right: 100%;
+  right: 0;
   width: 70%;
   height: 100%;
   background: #2e2e2e;
@@ -345,12 +345,15 @@ main {
 /* Footer */
 footer {
   width: 100%;
-  margin-top: 40rem;
+  margin-top: 3rem;
   text-align: center;
   font-size: 1.6rem;
 }
 
 a {
   color: #fff;
+}
+
+a:hover {
   text-decoration: none;
 }
