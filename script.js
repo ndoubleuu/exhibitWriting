@@ -13,6 +13,8 @@ exhibitApp.gatherElements = () => {
     exhibitApp.selectionButtons = document.querySelectorAll(".selection button");
     exhibitApp.selection = document.querySelector(".selection");
     exhibitApp.title = document.querySelector("h1");
+    exhibitApp.modal = document.querySelector(".modal");
+    exhibitApp.paintingsContainer = document.querySelector(".paintingsContainer");
 }
 
 // Hide help & instructions section
@@ -26,6 +28,17 @@ exhibitApp.hideHelp = () => {
         if (event.key === "Escape") {
             exhibitApp.helpContainer.classList.remove("displayed");
         }
+    })
+}
+
+exhibitApp.displayPaintings = (artworks) => {
+    artworks.forEach((artwork) => {
+        exhibitApp.artpiece = document.createElement("li");
+        exhibitApp.artpiece.innerHTML = `
+            <h4>${artwork.title}</h4>
+            <img src="${artwork.webImage.url}">
+        `
+        exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
     })
 }
 
@@ -46,6 +59,7 @@ exhibitApp.getPaintings = (painter) => {
         })
         .then((jsonResponse) => {
             exhibitApp.artworkArray = jsonResponse.artObjects;
+            exhibitApp.displayPaintings(exhibitApp.artworkArray);
             console.log(exhibitApp.artworkArray);
         })
 }
@@ -56,6 +70,7 @@ exhibitApp.init = () => {
 
     exhibitApp.selectionButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
+            exhibitApp.modal.style.display = "inherit";
             exhibitApp.painter = event.target.textContent;
             exhibitApp.getPaintings(exhibitApp.painter);
         });
