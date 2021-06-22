@@ -35,7 +35,7 @@ exhibitApp.getPaintings = (painter) => {
         key: exhibitApp.apiKey,
         format: "json",
         culture: "en",
-        q: painter,
+        involvedMaker: painter,
         ps: 5,
         imgonly: "true"
     })
@@ -45,7 +45,8 @@ exhibitApp.getPaintings = (painter) => {
             return response.json();
         })
         .then((jsonResponse) => {
-            console.log(jsonResponse.artObjects);
+            exhibitApp.artworkArray = jsonResponse.artObjects;
+            console.log(exhibitApp.artworkArray);
         })
 }
 
@@ -55,7 +56,8 @@ exhibitApp.init = () => {
 
     exhibitApp.selectionButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
-            exhibitApp.getPaintings(event.target.textContent);
+            exhibitApp.painter = event.target.textContent;
+            exhibitApp.getPaintings(exhibitApp.painter);
         });
     });
 
