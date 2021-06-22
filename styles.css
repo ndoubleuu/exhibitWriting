@@ -222,8 +222,8 @@ body {
   overflow-x: hidden;
   background-image: linear-gradient(
       to right,
-      rgba(46, 46, 46, 0.9),
-      rgba(46, 46, 46, 0.4)
+      #2e2e2ed9,
+      #2e2e2e80
     ),
     url("./assets/background.jpg");
   background-size: cover;
@@ -241,7 +241,7 @@ body {
 
 button {
   background: transparent;
-  color: white;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -271,20 +271,10 @@ h2 {
   margin-top: 3rem;
 }
 
-.help {
-  border: none;
-  color: white;
-  font-size: 3rem;
-  position: absolute;
-  right: 0;
-  top: 4rem;
-  padding: 1rem;
-}
-
 /* Main */
 main {
   position: absolute;
-  top: 35%;
+  top: 50%;
   width: 100%;
 }
 
@@ -311,7 +301,7 @@ main {
 .selection button::before {
   content: "";
   position: absolute;
-  background: rgba(46, 46, 46, 0.8);
+  background: #2e2e2ecc;
   top: 100%;
   right: 0;
   bottom: 0;
@@ -324,11 +314,32 @@ main {
   top: 0;
 }
 
-p {
-  text-align: center;
-  font-size: 1.6rem;
-  font-style: italic;
-  margin-top: 10rem;
+.help {
+  border: none;
+  color: #fff;
+  font-size: 3rem;
+  position: absolute;
+  right: 0;
+  top: -13rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.help:hover {
+  color: #979797;
+}
+
+.helpContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 100%;
+  width: 70%;
+  height: 100%;
+  background: #2e2e2e;
+  padding: 0 7rem;
 }
 
 /* Footer */
@@ -340,6 +351,6 @@ footer {
 }
 
 a {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
