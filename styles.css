@@ -251,7 +251,8 @@ header {
 }
 
 h1,
-h2 {
+h2, 
+h3 {
   font-weight: normal;
 }
 
@@ -320,12 +321,12 @@ main {
   font-size: 3rem;
   position: absolute;
   right: 0;
-  top: -13rem;
+  top: -14rem;
   padding: 1rem;
   transition: all 0.3s ease;
 }
 
-.help:hover {
+.help:hover, .help:focus, .exitHelp:hover, .exitHelp:focus {
   color: #979797;
 }
 
@@ -335,11 +336,37 @@ main {
   justify-content: center;
   position: fixed;
   top: 0;
-  right: 0;
-  width: 70%;
+  right: -100%;
+  width: 72%;
   height: 100%;
   background: #2e2e2e;
   padding: 0 7rem;
+  transition: all 1.2s ease-in-out;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3:first-of-type {
+  text-align: center;
+}
+
+ol, ul {
+  margin-top: 1rem;
+}
+
+.exitHelp {
+  border: none;
+  width: 3rem;
+  position: relative;
+  right: 5.5rem;
+  top: 1.5rem;
+  font-size: 3rem;
+  padding: 1rem;
+  margin-top: -4rem;
+  transition: all 0.3s ease;
 }
 
 /* Footer */
