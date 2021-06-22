@@ -35,8 +35,8 @@ exhibitApp.displayPaintings = (artworks) => {
     artworks.forEach((artwork) => {
         exhibitApp.artpiece = document.createElement("li");
         exhibitApp.artpiece.innerHTML = `
-            <h4>${artwork.title}</h4>
             <img src="${artwork.webImage.url}">
+            <h4>${artwork.title}</h4>
         `
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
     })

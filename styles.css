@@ -240,7 +240,7 @@ body {
 }
 
 img {
-  width: 20%;
+  width: 100%;
 }
 
 button {
@@ -404,4 +404,9 @@ a:hover {
   height: 100%;
   background: black;
   display: none;
+}
+
+.paintingsContainer {
+  list-style: none;
+  display: flex;
 }
