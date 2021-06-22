@@ -260,7 +260,7 @@ h1 {
   font-family: "Cormorant Garamond", serif;
   font-size: 7rem;
   margin: 0;
-  width: 28rem;
+  width: 26rem;
   line-height: 5.5rem;
   padding: 5rem 0 5rem 2rem;
   border-left: 0.1rem solid #fff;
@@ -275,7 +275,7 @@ h2 {
 /* Main */
 main {
   position: absolute;
-  top: 50%;
+  top: 48%;
   width: 100%;
 }
 
@@ -308,7 +308,7 @@ main {
   bottom: 0;
   left: 0;
   z-index: -1;
-  transition: top 0.3s ease;
+  transition: top 0.4s ease;
 }
 
 .selection button:hover::before {
@@ -341,7 +341,13 @@ main {
   height: 100%;
   background: #2e2e2e;
   padding: 0 7rem;
-  transition: all 1.2s ease-in-out;
+  opacity: 0;
+  transition: all 1.8s ease;
+}
+
+.displayed {
+  opacity: 1;
+  right: 0;
 }
 
 h3 {
