@@ -48,8 +48,9 @@ exhibitApp.displayPaintings = (artworks) => {
 
     exhibitApp.artpiece.innerHTML = `
         <div class="imageContainer">
-            <img src="${artworks[i].image}">
+            <img src=${artworks[i].image} alt="${artworks[i].altText}" />
         </div>
+        <a href=${artworks[i].link}>Learn more</a>
         <h4>${artworks[i].title}</h4>
         <form>
             <textarea></textarea>
@@ -64,8 +65,9 @@ exhibitApp.displayPaintings = (artworks) => {
         }
         exhibitApp.artpiece.innerHTML = `
             <div class="imageContainer">
-                <img src="${artworks[i].image}">
+                <img src=${artworks[i].image} alt="${artworks[i].altText}" />
             </div>
+            <a href=${artworks[i].link}>Learn more</a>
             <h4>${artworks[i].title}</h4>
             <form>
                 <textarea></textarea>
@@ -81,8 +83,9 @@ exhibitApp.displayPaintings = (artworks) => {
         }
         exhibitApp.artpiece.innerHTML = `
             <div class="imageContainer">
-                <img src="${artworks[i].image}">
+                <img src=${artworks[i].image} alt="${artworks[i].altText}" />
             </div>
+            <a href=${artworks[i].link}>Learn more</a>
             <h4>${artworks[i].title}</h4>
             <form>
                 <textarea></textarea>
@@ -113,7 +116,9 @@ exhibitApp.getPaintings = (painter) => {
             exhibitApp.newPaintingsArray = exhibitApp.artworkArray.map((artwork) => {
                 return {
                     image: artwork.webImage.url,
-                    title: artwork.title
+                    title: artwork.title,
+                    altText: artwork.longTitle,
+                    link: artwork.links.web
                 }
             });
 
