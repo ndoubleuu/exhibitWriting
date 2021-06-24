@@ -427,16 +427,28 @@ a:hover {
 .paintingsContainer {
   list-style: none;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   text-align: center;
+  width: 90%;
+  transform-style: preserve-3d;
 }
 
 .paintingsContainer li {
-  width: 100%;
-  /* margin: 0 100%; */
+  /* opacity: 0; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .imageContainer {
-  width: 45rem;
+  width: 35rem;
+}
+
+.imageContainer.initial,
+.imageContainer.active {
+  opacity: 1;
+  position: relative;
+  z-index: 100;
 }
