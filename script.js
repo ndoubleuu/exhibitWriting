@@ -21,7 +21,10 @@ exhibitApp.gatherElements = () => {
 // Hide modal
 exhibitApp.hideModal = () => {
     exhibitApp.exitModal.addEventListener("click", () => {
-        exhibitApp.modal.style.display = "none";
+        exhibitApp.modal.style.opacity = "0";
+        setTimeout(() => {
+            exhibitApp.modal.style.display = "none";
+        }, 800);
     })
 }
 
@@ -58,7 +61,9 @@ exhibitApp.displayPaintings = (artworks) => {
         <div class="imageContainer">
             <img src=${artworks[i].image} alt="${artworks[i].altText}" />
         </div>
-        <a href=${artworks[i].link}>Learn more</a>
+        <div class="linkContainer">
+            <a href=${artworks[i].link}>Learn more</a>
+        </div>
         <h4>${artworks[i].title}</h4>
         <form>
             <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
@@ -77,7 +82,9 @@ exhibitApp.displayPaintings = (artworks) => {
             <div class="imageContainer">
                 <img src=${artworks[i].image} alt="${artworks[i].altText}" />
             </div>
-            <a href=${artworks[i].link}>Learn more</a>
+            <div class="linkContainer">
+                <a href=${artworks[i].link}>Learn more</a>
+            </div>
             <h4>${artworks[i].title}</h4>
             <form>
                 <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
@@ -97,7 +104,9 @@ exhibitApp.displayPaintings = (artworks) => {
             <div class="imageContainer">
                 <img src=${artworks[i].image} alt="${artworks[i].altText}" />
             </div>
-            <a href=${artworks[i].link}>Learn more</a>
+            <div class="linkContainer">
+                <a href=${artworks[i].link}>Learn more</a>
+            </div>
             <h4>${artworks[i].title}</h4>
             <form>
                 <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
@@ -149,6 +158,9 @@ exhibitApp.init = () => {
     exhibitApp.selectionButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
             exhibitApp.modal.style.display = "inherit";
+            setTimeout(() => {
+                exhibitApp.modal.style.opacity = "1";
+            }, 400);
             exhibitApp.painter = event.target.textContent;
             exhibitApp.getPaintings(exhibitApp.painter);
 

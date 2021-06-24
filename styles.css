@@ -353,7 +353,7 @@ main {
 .helpContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   position: fixed;
   top: 0;
   right: -100%;
@@ -363,6 +363,7 @@ main {
   padding: 0 7rem;
   opacity: 0;
   transition: all 1.8s ease;
+  overflow-y: scroll;
 }
 
 .displayed {
@@ -373,8 +374,8 @@ main {
 .exitHelp {
   width: 3rem;
   position: relative;
-  right: 5.5rem;
-  margin-top: -4rem;
+  right: 6rem;
+  top: 3.5rem;
 }
 
 h3 {
@@ -388,6 +389,7 @@ h3:first-of-type {
 
 ol, ul {
   margin-top: 1rem;
+  padding-left: 0;
 }
 
 .credit {
@@ -418,6 +420,8 @@ a:hover {
   height: 100%;
   background: #2e2e2e;
   display: none;
+  opacity: 0;
+  transition: all 0.8s ease;
 }
 
 .modalContent {
@@ -449,8 +453,40 @@ a:hover {
   align-items: center;
 }
 
+.paintingsContainer h4 {
+  max-width: 50rem;
+}
+
 .imageContainer {
-  width: 35rem;
+  width: 40rem;
+}
+
+.next, .previous {
+  position: absolute;
+  z-index: 20;
+}
+
+.next {
+  right: 20rem;
+  top: 40%;
+}
+
+.previous {
+  left: 20rem;
+  top: 40%;
+}
+
+.linkContainer {
+  font-size: 1.8rem;
+  font-style: italic;
+  width: 66%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.5rem 0 3.5rem;
+}
+
+.linkContainer a {
+  text-decoration: none;
 }
 
 form {
@@ -462,7 +498,7 @@ form {
 button[type="submit"] {
   border: 1px solid #fff;
   padding: 1rem 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 button[type="submit"]:hover, 
@@ -476,5 +512,13 @@ textarea {
   resize: none;
   width: 60rem;
   height: 20rem;
+  padding: 1.5rem;
   margin-bottom: 3rem;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+textarea::placeholder {
+  font-style: italic;
 }
