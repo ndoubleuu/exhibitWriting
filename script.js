@@ -39,6 +39,14 @@ exhibitApp.hideHelp = () => {
     })
 }
 
+exhibitApp.postLabel = () => {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+    })
+}
+
 exhibitApp.displayPaintings = (artworks) => {
     const next = document.querySelector(".next");
     const previous = document.querySelector(".previous");
@@ -53,8 +61,9 @@ exhibitApp.displayPaintings = (artworks) => {
         <a href=${artworks[i].link}>Learn more</a>
         <h4>${artworks[i].title}</h4>
         <form>
-            <label class="srOnly">Write your own exhibit label for the painting</label>
-            <textarea placeholder="How would you describe this painting?" maxlength="500"></textarea>
+            <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
+            <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500"></textarea>
+            <button type="submit" class="post">Post label</button>
         </form>
     `;
     exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
@@ -71,8 +80,9 @@ exhibitApp.displayPaintings = (artworks) => {
             <a href=${artworks[i].link}>Learn more</a>
             <h4>${artworks[i].title}</h4>
             <form>
-                <label class="srOnly">Write your own exhibit label for the painting</label>
-                <textarea placeholder="How would you describe this painting?" maxlength="500"></textarea>
+                <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
+                <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500"></textarea>
+                <button type="submit" class="post">Post label</button>
             </form>
         `;
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
@@ -90,12 +100,15 @@ exhibitApp.displayPaintings = (artworks) => {
             <a href=${artworks[i].link}>Learn more</a>
             <h4>${artworks[i].title}</h4>
             <form>
-                <label class="srOnly">Write your own exhibit label for the painting</label>
-                <textarea placeholder="How would you describe this painting?" maxlength="500"></textarea>
+                <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
+                <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500"></textarea>
+                <button type="submit" class="post">Post label</button>
             </form>
         `;
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
     });
+
+    exhibitApp.postLabel();
 }
 
 // Call to Rijks API
