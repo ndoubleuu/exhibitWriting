@@ -53,7 +53,8 @@ exhibitApp.displayPaintings = (artworks) => {
         <a href=${artworks[i].link}>Learn more</a>
         <h4>${artworks[i].title}</h4>
         <form>
-            <textarea></textarea>
+            <label class="srOnly">Write your own exhibit label for the painting</label>
+            <textarea placeholder="How would you describe this painting?" maxlength="500"></textarea>
         </form>
     `;
     exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
@@ -70,7 +71,8 @@ exhibitApp.displayPaintings = (artworks) => {
             <a href=${artworks[i].link}>Learn more</a>
             <h4>${artworks[i].title}</h4>
             <form>
-                <textarea></textarea>
+                <label class="srOnly">Write your own exhibit label for the painting</label>
+                <textarea placeholder="How would you describe this painting?" maxlength="500"></textarea>
             </form>
         `;
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
@@ -88,7 +90,8 @@ exhibitApp.displayPaintings = (artworks) => {
             <a href=${artworks[i].link}>Learn more</a>
             <h4>${artworks[i].title}</h4>
             <form>
-                <textarea></textarea>
+                <label class="srOnly">Write your own exhibit label for the painting</label>
+                <textarea placeholder="How would you describe this painting?" maxlength="500"></textarea>
             </form>
         `;
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
