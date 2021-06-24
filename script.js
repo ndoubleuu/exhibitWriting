@@ -15,6 +15,14 @@ exhibitApp.gatherElements = () => {
     exhibitApp.title = document.querySelector("h1");
     exhibitApp.modal = document.querySelector(".modal");
     exhibitApp.paintingsContainer = document.querySelector(".paintingsContainer");
+    exhibitApp.exitModal = document.querySelector(".exitModal");
+}
+
+// Hide modal
+exhibitApp.hideModal = () => {
+    exhibitApp.exitModal.addEventListener("click", () => {
+        exhibitApp.modal.style.display = "none";
+    })
 }
 
 // Hide help & instructions section
@@ -65,7 +73,6 @@ exhibitApp.getPaintings = (painter) => {
         .then((jsonResponse) => {
             exhibitApp.artworkArray = jsonResponse.artObjects;
             exhibitApp.displayPaintings(exhibitApp.artworkArray);
-            console.log(exhibitApp.artworkArray);
         })
 }
 
@@ -78,6 +85,10 @@ exhibitApp.init = () => {
             exhibitApp.modal.style.display = "inherit";
             exhibitApp.painter = event.target.textContent;
             exhibitApp.getPaintings(exhibitApp.painter);
+
+            // Clear previous paintings
+            const clearResults = exhibitApp.paintingsContainer;
+            clearResults.innerHTML = "";
         });
     });
 
@@ -92,6 +103,8 @@ exhibitApp.init = () => {
     });
 
     exhibitApp.hideHelp();
+
+    exhibitApp.hideModal();
 }
 
 exhibitApp.init();
