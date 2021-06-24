@@ -220,7 +220,7 @@ html {
 
 body {
   overflow-x: hidden;
-  background-image: linear-gradient(
+  background: linear-gradient(
       to right,
       #2e2e2ed9,
       #2e2e2e80
@@ -247,6 +247,22 @@ button {
   background: transparent;
   color: #fff;
   cursor: pointer;
+}
+
+.help, .exitHelp, .exitModal {
+  border: none;
+  font-size: 3rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.help:hover, 
+.help:focus, 
+.exitHelp:hover, 
+.exitHelp:focus, 
+.exitModal:hover, 
+.exitModal:focus {
+  color: #979797;
 }
 
 /* Header */
@@ -320,18 +336,10 @@ main {
 }
 
 .help {
-  border: none;
   color: #fff;
-  font-size: 3rem;
   position: absolute;
   right: 0;
   top: -14rem;
-  padding: 1rem;
-  transition: all 0.3s ease;
-}
-
-.help:hover, .help:focus, .exitHelp:hover, .exitHelp:focus, .exitModal:hover, .exitModal:focus {
-  color: #979797;
 }
 
 .helpContainer {
@@ -355,14 +363,10 @@ main {
 }
 
 .exitHelp {
-  border: none;
   width: 3rem;
   position: relative;
   right: 5.5rem;
-  font-size: 3rem;
-  padding: 1rem;
   margin-top: -4rem;
-  transition: all 0.3s ease;
 }
 
 h3 {
@@ -398,6 +402,8 @@ a:hover {
   position: fixed;
   top: 0;
   left: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 8rem;
   z-index: 10;
   width: 100%;
@@ -406,13 +412,30 @@ a:hover {
   display: none;
 }
 
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exitModal {
+  position: absolute;
+  right: 6rem;
+  top: 3rem;
+}
+
 .paintingsContainer {
   list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .paintingsContainer li {
-  width: 30rem;
+  width: 100%;
+}
+
+.imageContainer {
+  width: 35rem;
 }

@@ -39,6 +39,9 @@ exhibitApp.displayPaintings = (artworks) => {
                 <img src="${artwork.webImage.url}">
             </div>
             <h4>${artwork.title}</h4>
+            <form>
+                <textarea></textarea>
+            </form>
         `
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
     })
