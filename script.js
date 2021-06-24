@@ -40,13 +40,6 @@ exhibitApp.hideHelp = () => {
 }
 
 exhibitApp.displayPaintings = (artworks) => {
-    exhibitApp.newPaintingsArray = artworks.map((artwork) => {
-        return {
-            image: artwork.webImage.url,
-            title: artwork.title
-        }
-    });
-
     const next = document.querySelector(".next");
     const previous = document.querySelector(".previous");
     let i = 0;
@@ -54,63 +47,49 @@ exhibitApp.displayPaintings = (artworks) => {
     exhibitApp.artpiece = document.createElement("li");
 
     exhibitApp.artpiece.innerHTML = `
-                <div class="imageContainer">
-                    <img src="${exhibitApp.newPaintingsArray[i].image}">
-                </div>
-                <h4>${exhibitApp.newPaintingsArray[i].title}</h4>
-                <form>
-                    <textarea></textarea>
-                </form>
-            `
+        <div class="imageContainer">
+            <img src="${artworks[i].image}">
+        </div>
+        <h4>${artworks[i].title}</h4>
+        <form>
+            <textarea></textarea>
+        </form>
+    `;
     exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
 
     next.addEventListener("click", () => {
-        exhibitApp.newPaintingsArray[i++];
+        artworks[i++];
         if (i === 5) {
             i = 0;
         }
         exhibitApp.artpiece.innerHTML = `
-                <div class="imageContainer">
-                    <img src="${exhibitApp.newPaintingsArray[i].image}">
-                </div>
-                <h4>${exhibitApp.newPaintingsArray[i].title}</h4>
-                <form>
-                    <textarea></textarea>
-                </form>
-            `
+            <div class="imageContainer">
+                <img src="${artworks[i].image}">
+            </div>
+            <h4>${artworks[i].title}</h4>
+            <form>
+                <textarea></textarea>
+            </form>
+        `;
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
-    })
+    });
 
     previous.addEventListener("click", () => {
-        exhibitApp.newPaintingsArray[i--];
+        artworks[i--];
         if (i < 0) {
             i = 4;
         }
         exhibitApp.artpiece.innerHTML = `
-                <div class="imageContainer">
-                    <img src="${exhibitApp.newPaintingsArray[i].image}">
-                </div>
-                <h4>${exhibitApp.newPaintingsArray[i].title}</h4>
-                <form>
-                    <textarea></textarea>
-                </form>
-            `
+            <div class="imageContainer">
+                <img src="${artworks[i].image}">
+            </div>
+            <h4>${artworks[i].title}</h4>
+            <form>
+                <textarea></textarea>
+            </form>
+        `;
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
-    })
-
-    // .forEach((artwork) => {
-    //     exhibitApp.artpiece = document.createElement("li");
-    //     exhibitApp.artpiece.innerHTML = `
-    //         <div class="imageContainer">
-    //             <img src="${artwork.webImage.url}">
-    //         </div>
-    //         <h4>${artwork.title}</h4>
-    //         <form>
-    //             <textarea></textarea>
-    //         </form>
-    //     `
-    //     exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
-    // })
+    });
 }
 
 // Call to Rijks API
@@ -130,7 +109,15 @@ exhibitApp.getPaintings = (painter) => {
         })
         .then((jsonResponse) => {
             exhibitApp.artworkArray = jsonResponse.artObjects;
-            exhibitApp.displayPaintings(exhibitApp.artworkArray);
+
+            exhibitApp.newPaintingsArray = exhibitApp.artworkArray.map((artwork) => {
+                return {
+                    image: artwork.webImage.url,
+                    title: artwork.title
+                }
+            });
+
+            exhibitApp.displayPaintings(exhibitApp.newPaintingsArray);
         })
 }
 
