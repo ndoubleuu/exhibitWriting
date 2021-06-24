@@ -428,14 +428,15 @@ a:hover {
   list-style: none;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   text-align: center;
 }
 
 .paintingsContainer li {
   width: 100%;
+  /* margin: 0 100%; */
 }
 
 .imageContainer {
-  width: 35rem;
+  width: 45rem;
 }
