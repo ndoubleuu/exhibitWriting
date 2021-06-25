@@ -349,17 +349,16 @@ a:hover {
 .next,
 .previous {
   position: absolute;
+  top: 50%;
   z-index: 20;
 }
 
 .next {
-  right: 20rem;
-  top: 40%;
+  right: 15rem;
 }
 
 .previous {
-  left: 20rem;
-  top: 40%;
+  left: 15rem;
 }
 
 .linkContainer {
