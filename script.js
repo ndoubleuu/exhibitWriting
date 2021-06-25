@@ -43,10 +43,18 @@ exhibitApp.hideHelp = () => {
 }
 
 exhibitApp.postLabel = () => {
-    const form = document.querySelector("form");
+    let form = document.querySelector("form");
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
+
+        const textarea = document.querySelector("textarea");
+        exhibitApp.labelInput = textarea.value;
+        console.log(exhibitApp.labelInput);
+        form.textContent = exhibitApp.labelInput;
+
+        // Clear textarea after submission
+        textarea.value = "";
     })
 }
 
@@ -72,6 +80,7 @@ exhibitApp.displayPaintings = (artworks) => {
         </form>
     `;
     exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
+    exhibitApp.postLabel();
 
     next.addEventListener("click", () => {
         artworks[i++];
@@ -93,6 +102,8 @@ exhibitApp.displayPaintings = (artworks) => {
             </form>
         `;
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
+
+        exhibitApp.postLabel();
     });
 
     previous.addEventListener("click", () => {
@@ -115,9 +126,9 @@ exhibitApp.displayPaintings = (artworks) => {
             </form>
         `;
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
-    });
 
-    exhibitApp.postLabel();
+        exhibitApp.postLabel();
+    });
 }
 
 // Call to Rijks API

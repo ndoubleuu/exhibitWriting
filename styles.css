@@ -353,7 +353,6 @@ main {
 .helpContainer {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   position: fixed;
   top: 0;
   right: -100%;
@@ -366,6 +365,10 @@ main {
   overflow-y: scroll;
 }
 
+.helpContainer span {
+  font-style: italic;
+}
+
 .displayed {
   opacity: 1;
   right: 0;
@@ -375,7 +378,7 @@ main {
   width: 3rem;
   position: relative;
   right: 6rem;
-  top: 3.5rem;
+  top: 3.3rem;
 }
 
 h3 {
