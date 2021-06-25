@@ -49,7 +49,7 @@ exhibitApp.postLabel = () => {
         event.preventDefault();
 
         const textarea = document.querySelector("textarea");
-        exhibitApp.labelInput = textarea.value;
+        exhibitApp.labelInput = textarea.value.trim();
         console.log(exhibitApp.labelInput);
         form.textContent = exhibitApp.labelInput;
 
