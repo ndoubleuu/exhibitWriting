@@ -341,7 +341,8 @@ a:hover {
 
 .imageContainer {
   width: 40rem;
-  border: 4rem solid transparent;
+  border-style: solid;
+  border-width: 4rem;
   border-image: url("./assets/frame.png") 100;
 }
 
