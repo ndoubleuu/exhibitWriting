@@ -338,7 +338,12 @@ a:hover {
 
 .imageContainer {
   width: 40rem;
-  border: ;
+  border: 4rem solid transparent;
+  border-image: url("./assets/frame.png") 100;
+}
+
+.imageContainer img {
+  margin-bottom: -1rem;
 }
 
 .next,
