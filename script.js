@@ -70,7 +70,7 @@ exhibitApp.displayPaintings = (artworks) => {
             <img src=${artworks[i].image} alt="${artworks[i].altText}" />
         </div>
         <div class="linkContainer">
-            <a href=${artworks[i].link}>Learn more</a>
+            <a href=${artworks[i].link} target="_blank">Learn more</a>
         </div>
         <h4>${artworks[i].title}</h4>
         <form>
@@ -92,7 +92,7 @@ exhibitApp.displayPaintings = (artworks) => {
                 <img src=${artworks[i].image} alt="${artworks[i].altText}" />
             </div>
             <div class="linkContainer">
-                <a href=${artworks[i].link}>Learn more</a>
+                <a href=${artworks[i].link} target="_blank">Learn more</a>
             </div>
             <h4>${artworks[i].title}</h4>
             <form>
@@ -116,7 +116,7 @@ exhibitApp.displayPaintings = (artworks) => {
                 <img src=${artworks[i].image} alt="${artworks[i].altText}" />
             </div>
             <div class="linkContainer">
-                <a href=${artworks[i].link}>Learn more</a>
+                <a href=${artworks[i].link} target="_blank">Learn more</a>
             </div>
             <h4>${artworks[i].title}</h4>
             <form>
