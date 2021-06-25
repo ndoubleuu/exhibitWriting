@@ -344,6 +344,8 @@ a:hover {
 
 .imageContainer img {
   margin-bottom: -1rem;
+  position: relative;
+  z-index: -10;
 }
 
 .next,
