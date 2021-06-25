@@ -82,7 +82,7 @@ exhibitApp.displayPaintings = (artworks) => {
         <h4>${artworks[i].title}</h4>
         <form>
             <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
-            <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500"></textarea>
+            <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500" required></textarea>
             <button type="submit" class="post">Post label</button>
         </form>
     `;
@@ -106,7 +106,7 @@ exhibitApp.displayPaintings = (artworks) => {
                 <h4>${artworks[i].title}</h4>
                 <form>
                     <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
-                    <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500"></textarea>
+                    <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500" required></textarea>
                     <button type="submit" class="post">Post label</button>
                 </form>
             `;
@@ -143,7 +143,7 @@ exhibitApp.displayPaintings = (artworks) => {
                 <h4>${artworks[i].title}</h4>
                 <form>
                     <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
-                    <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500"></textarea>
+                    <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500" required></textarea>
                     <button type="submit" class="post">Post label</button>
                 </form>
             `;
