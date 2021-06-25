@@ -220,11 +220,7 @@ html {
 
 body {
   overflow-x: hidden;
-  background: linear-gradient(
-      to right,
-      #2e2e2ed9,
-      #2e2e2e80
-    ),
+  background: linear-gradient(to right, #2e2e2ed9, #2e2e2e80),
     url("./assets/background.jpg");
   background-size: cover;
   font-size: 2rem;
@@ -250,10 +246,10 @@ button {
   cursor: pointer;
 }
 
-.help, 
-.exitHelp, 
-.exitModal, 
-.next, 
+.help,
+.exitHelp,
+.exitModal,
+.next,
 .previous {
   border: none;
   font-size: 4rem;
@@ -261,15 +257,15 @@ button {
   transition: all 0.3s ease;
 }
 
-.help:hover, 
-.help:focus, 
-.exitHelp:hover, 
-.exitHelp:focus, 
-.exitModal:hover, 
+.help:hover,
+.help:focus,
+.exitHelp:hover,
+.exitHelp:focus,
+.exitModal:hover,
 .exitModal:focus,
-.next:hover, 
-.next:focus, 
-.previous:hover, 
+.next:hover,
+.next:focus,
+.previous:hover,
 .previous:focus {
   color: #979797;
 }
@@ -280,7 +276,7 @@ header {
 }
 
 h1,
-h2, 
+h2,
 h3 {
   font-weight: normal;
 }
@@ -390,7 +386,8 @@ h3:first-of-type {
   text-align: center;
 }
 
-ol, ul {
+ol,
+ul {
   margin-top: 1rem;
   padding-left: 0;
 }
@@ -460,11 +457,16 @@ a:hover {
   max-width: 50rem;
 }
 
+.paintingsContainer p {
+  max-width: 60rem;
+}
+
 .imageContainer {
   width: 40rem;
 }
 
-.next, .previous {
+.next,
+.previous {
   position: absolute;
   z-index: 20;
 }
@@ -505,7 +507,7 @@ button[type="submit"] {
   transition: all 0.3s ease-in-out;
 }
 
-button[type="submit"]:hover, 
+button[type="submit"]:hover,
 button[type="submit"]:focus {
   background: #fff;
   color: #000;
