@@ -108,6 +108,7 @@ body {
   max-width: 90%;
   margin: 0 auto;
   position: relative;
+  min-height: 100vh;
 }
 
 img {
@@ -175,7 +176,7 @@ h2 {
 /* Main */
 main {
   position: absolute;
-  top: 48%;
+  top: 35%;
   width: 100%;
 }
 
@@ -218,12 +219,13 @@ main {
   color: #fff;
   position: absolute;
   right: 0;
-  top: -14rem;
+  top: 4rem;
 }
 
 .helpContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   position: fixed;
   top: 0;
   right: -100%;
@@ -246,10 +248,10 @@ main {
 }
 
 .exitHelp {
-  width: 3rem;
-  position: relative;
-  right: 6rem;
-  top: 3.3rem;
+  width: 6rem;
+  position: absolute;
+  left: 3rem;
+  top: 4.2rem;
 }
 
 h3 {
@@ -409,4 +411,50 @@ textarea {
 
 textarea::placeholder {
   font-style: italic;
+}
+
+/* Media Queries */
+@media (max-width: 1035px) {
+  header {
+    width: 60rem;
+    display: flex;
+    align-items: center;
+  }
+  header h2 {
+    margin: 4rem 0 0 3rem;
+  }
+  .helpContainer {
+    padding-top: 5rem;
+  }
+}
+
+@media (max-width: 760px) {
+  h1 {
+    margin-bottom: 14rem;
+  }
+  header h2 {
+    margin: 22rem 0 0 -26rem;
+    width: 23rem;
+  }
+  main {
+    top: 38rem;
+  }
+  .helpContainer {
+    width: 100%;
+    justify-content: stretch;
+    padding-top: 10rem;
+  }
+}
+
+@media (max-width: 465px) {
+  .selection button {
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 6rem;
+  }
 }
