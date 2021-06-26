@@ -18,14 +18,24 @@ exhibitApp.gatherElements = () => {
     exhibitApp.exitModal = document.querySelector(".exitModal");
 }
 
+// Method that will cause modal to fade out on exit (called in hideModal method)
+exhibitApp.fadeOutModal = () => {
+    exhibitApp.modal.style.opacity = "0";
+    setTimeout(() => {
+        exhibitApp.modal.style.display = "none";
+    }, 800);
+}
+
 // Hide modal
 exhibitApp.hideModal = () => {
     exhibitApp.exitModal.addEventListener("click", () => {
-        exhibitApp.modal.style.opacity = "0";
-        setTimeout(() => {
-            exhibitApp.modal.style.display = "none";
-        }, 800);
-    })
+        exhibitApp.fadeOutModal();
+    });
+    window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            exhibitApp.fadeOutModal();
+        }
+    });
 }
 
 // Hide help & instructions section
@@ -200,6 +210,7 @@ exhibitApp.init = () => {
     // Gather elements from DOM
     exhibitApp.gatherElements();
 
+    // Method that opens modal and displays paintings
     exhibitApp.selectionButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
             exhibitApp.modal.style.display = "inherit";

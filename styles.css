@@ -6,7 +6,6 @@ html {
 body {
   margin: 0;
 }
-footer,
 header,
 section {
   display: block;
@@ -252,7 +251,7 @@ main {
 .exitHelp {
   width: 6rem;
   position: absolute;
-  left: 3rem;
+  left: 1rem;
   top: 4.2rem;
 }
 
@@ -307,6 +306,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: -10rem;
 }
 
 .exitModal {
@@ -355,17 +355,17 @@ a:hover {
 
 .next,
 .previous {
-  position: absolute;
-  top: 50%;
-  z-index: 20;
+  position: relative;
 }
 
 .next {
-  right: 15rem;
+  left: 30rem;
+  bottom: 71.6rem;
 }
 
 .previous {
-  left: 15rem;
+  right: 30rem;
+  bottom: 65rem;
 }
 
 .linkContainer {
@@ -417,6 +417,12 @@ textarea::placeholder {
 }
 
 /* Media Queries */
+@media (max-width: 1280px) {
+  .helpContainer {
+    justify-content: stretch;
+    padding-top: 8rem;
+  }
+}
 @media (max-width: 1035px) {
   main {
     top: 32%;
@@ -428,9 +434,6 @@ textarea::placeholder {
   }
   header h2 {
     margin: 4rem 0 0 3rem;
-  }
-  .helpContainer {
-    padding-top: 5rem;
   }
 }
 
@@ -450,11 +453,32 @@ textarea::placeholder {
   }
   .helpContainer {
     width: 100%;
-    justify-content: stretch;
-    padding-top: 10rem;
   }
   .selection {
     padding-bottom: 10rem;
+  }
+  .paintingsContainer h4 {
+    margin-top: 0;
+    max-width: 28rem;
+  }
+  form {
+    margin-top: 10rem;
+  }
+  textarea {
+    width: 40rem;
+    height: 40rem;
+  }
+  .exitModal {
+    top: 1.5rem;
+    right: 2rem;
+  }
+  .previous {
+    right: 3rem;
+    bottom: 59rem;
+  }
+  .next {
+    left: 3rem;
+    bottom: 65.6rem;
   }
 }
 
@@ -463,10 +487,22 @@ textarea::placeholder {
     width: 100%;
     padding: 1.5rem;
   }
+  .imageContainer {
+    width: 28rem;
+  }
+  .linkContainer {
+    width: 16%;
+  }
+  textarea {
+    width: 26rem;
+  }
 }
 
 @media (max-width: 320px) {
   h1 {
     font-size: 6rem;
+  }
+  .exitModal {
+    right: 12.5rem;
   }
 }
