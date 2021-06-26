@@ -488,19 +488,25 @@ textarea::placeholder {
     padding: 1.5rem;
   }
   .imageContainer {
-    width: 28rem;
+    width: 35rem;
   }
   .linkContainer {
     width: 16%;
   }
   textarea {
-    width: 26rem;
+    width: 35rem;
   }
 }
 
 @media (max-width: 320px) {
   h1 {
     font-size: 6rem;
+  }
+  .imageContainer {
+    width: 28rem;
+  }
+  textarea {
+    width: 26rem;
   }
   .exitModal {
     right: 12.5rem;
