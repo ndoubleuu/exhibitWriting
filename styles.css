@@ -236,7 +236,7 @@ main {
   background: #2e2e2e;
   padding: 0 7rem;
   opacity: 0;
-  transition: all 1.8s ease;
+  transition: all 1.5s ease;
   overflow-y: scroll;
 }
 
