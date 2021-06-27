@@ -110,6 +110,17 @@ body {
   min-height: 100vh;
 }
 
+h1,
+h2,
+h3 {
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 3rem;
+}
+
 img {
   width: 100%;
 }
@@ -150,12 +161,6 @@ header {
   width: 21rem;
 }
 
-h1,
-h2,
-h3 {
-  font-weight: normal;
-}
-
 h1 {
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
@@ -166,11 +171,6 @@ h1 {
   padding: 5rem 0 5rem 2rem;
   border-left: 0.1rem solid #fff;
   border-bottom: 0.1rem solid #fff;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-top: 3rem;
 }
 
 /* Main */
