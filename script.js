@@ -14,6 +14,8 @@ exhibitApp.gatherElements = () => {
     exhibitApp.selection = document.querySelector(".selection");
     exhibitApp.title = document.querySelector("h1");
     exhibitApp.modal = document.querySelector(".modal");
+    exhibitApp.next = document.querySelector(".next");
+    exhibitApp.previous = document.querySelector(".previous");
     exhibitApp.paintingsContainer = document.querySelector(".paintingsContainer");
     exhibitApp.exitModal = document.querySelector(".exitModal");
 }
@@ -76,8 +78,6 @@ exhibitApp.postLabel = (i) => {
 }
 
 exhibitApp.displayPaintings = (artworks) => {
-    const next = document.querySelector(".next");
-    const previous = document.querySelector(".previous");
     let i = 0;
 
     exhibitApp.artpiece = document.createElement("li");
@@ -99,12 +99,12 @@ exhibitApp.displayPaintings = (artworks) => {
     exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
     exhibitApp.postLabel(i);
 
-    next.addEventListener("click", () => {
+    exhibitApp.next.addEventListener("click", () => {
         artworks[i++];
         if (i === 5) {
             i = 0;
         }
-        console.log(exhibitApp.newPaintingsArray[0].label);
+
         if (exhibitApp.newPaintingsArray[i].label === undefined) {
             exhibitApp.artpiece.innerHTML = `
                 <div class="imageContainer">
@@ -120,6 +120,8 @@ exhibitApp.displayPaintings = (artworks) => {
                     <button type="submit" class="post">Post label</button>
                 </form>
             `;
+
+            exhibitApp.postLabel(i);
         } else {
             exhibitApp.artpiece.innerHTML = `
                 <div class="imageContainer">
@@ -133,11 +135,9 @@ exhibitApp.displayPaintings = (artworks) => {
             `;
         }
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
-
-        exhibitApp.postLabel(i);
     });
 
-    previous.addEventListener("click", () => {
+    exhibitApp.previous.addEventListener("click", () => {
         artworks[i--];
         if (i < 0) {
             i = 4;
@@ -157,6 +157,8 @@ exhibitApp.displayPaintings = (artworks) => {
                     <button type="submit" class="post">Post label</button>
                 </form>
             `;
+
+            exhibitApp.postLabel(i);
         } else {
             exhibitApp.artpiece.innerHTML = `
                 <div class="imageContainer">
@@ -170,8 +172,6 @@ exhibitApp.displayPaintings = (artworks) => {
             `;
         }
         exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
-
-        exhibitApp.postLabel(i);
     });
 }
 
