@@ -211,7 +211,8 @@ main {
   transition: top 0.4s ease;
 }
 
-.selection button:hover::before {
+.selection button:hover::before,
+.selection button:focus::before {
   top: 0;
 }
 
@@ -230,7 +231,7 @@ main {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 72%;
+  width: 70%;
   height: 100%;
   background: #2e2e2e;
   padding: 0 7rem;
@@ -246,6 +247,10 @@ main {
 .displayed {
   opacity: 1;
   right: 0;
+}
+
+.notDisplayed {
+  display: none;
 }
 
 .exitHelp {

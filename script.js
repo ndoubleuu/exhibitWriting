@@ -20,6 +20,40 @@ exhibitApp.gatherElements = () => {
     exhibitApp.exitModal = document.querySelector(".exitModal");
 }
 
+// When help button (?) is clicked, display the help & instructions section
+exhibitApp.displayHelp = () => {
+    exhibitApp.helpButton.addEventListener("click", () => {
+        exhibitApp.helpContainer.classList.remove("notDisplayed");
+        setTimeout(() => {
+            exhibitApp.helpContainer.classList.add("displayed");
+        }, 100);
+    });
+}
+
+// When exitHelp button (x) is clicked, hide help & instructions
+exhibitApp.closeHelp = () => {
+    exhibitApp.exitHelp.addEventListener("click", () => {
+        exhibitApp.helpContainer.classList.remove("displayed");
+        setTimeout(() => {
+            exhibitApp.helpContainer.classList.add("notDisplayed");
+        }, 1000);
+    });
+}
+
+// (For accessibility) Hide help & instructions section
+exhibitApp.hideHelp = () => {
+    window.addEventListener("click", (event) => {
+        if (event.target === exhibitApp.selection || event.target === exhibitApp.title) {
+            exhibitApp.helpContainer.classList.remove("displayed");
+        }
+    });
+    window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            exhibitApp.helpContainer.classList.remove("displayed");
+        }
+    })
+}
+
 // Method that will cause modal to fade out on exit (called in hideModal method)
 exhibitApp.fadeOutModal = () => {
     exhibitApp.modal.style.opacity = "0";
@@ -40,20 +74,7 @@ exhibitApp.hideModal = () => {
     });
 }
 
-// Hide help & instructions section
-exhibitApp.hideHelp = () => {
-    window.addEventListener("click", (event) => {
-        if (event.target === exhibitApp.selection || event.target === exhibitApp.title) {
-            exhibitApp.helpContainer.classList.remove("displayed");
-        }
-    });
-    window.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            exhibitApp.helpContainer.classList.remove("displayed");
-        }
-    })
-}
-
+// Method that displays user's exhibit label on submit
 exhibitApp.postLabel = (i) => {
     let form = document.querySelector("form");
 
@@ -145,6 +166,7 @@ exhibitApp.previousPainting = (i) => {
     exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
 }
 
+// Method that displays first painting and adds event listeners to next and previous buttons to move from painting to painting
 exhibitApp.displayPaintings = (artworks) => {
     let i = 0;
 
@@ -188,7 +210,7 @@ exhibitApp.displayPaintings = (artworks) => {
     });
 }
 
-// Call to Rijks API
+// Call to Rijksmuseum API
 exhibitApp.getPaintings = (painter) => {
     exhibitApp.url.search = new URLSearchParams({
         key: exhibitApp.apiKey,
@@ -223,6 +245,11 @@ exhibitApp.init = () => {
     // Gather elements from DOM
     exhibitApp.gatherElements();
 
+    // Methods to display and close help section
+    exhibitApp.displayHelp();
+    exhibitApp.closeHelp();
+    exhibitApp.hideHelp();
+
     // Method that opens modal and displays paintings
     exhibitApp.selectionButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
@@ -239,18 +266,7 @@ exhibitApp.init = () => {
         });
     });
 
-    // When help button (?) is clicked, display the help & instructions section
-    exhibitApp.helpButton.addEventListener("click", () => {
-        exhibitApp.helpContainer.classList.add("displayed");
-    });
-
-    // When exitHelp button (x) is clicked, hide help & instructions
-    exhibitApp.exitHelp.addEventListener("click", () => {
-        exhibitApp.helpContainer.classList.remove("displayed");
-    });
-
-    exhibitApp.hideHelp();
-
+    // Method to exit modal
     exhibitApp.hideModal();
 }
 
