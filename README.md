@@ -1,2 +1,2 @@
 # Exhibit Writing
-Exhibit Writing is an online tool to help users practice art interpretation and writing skills.
+Exhibit Writing is an online tool that helps users practice art interpretation and writing skills.
