@@ -498,7 +498,6 @@ textarea::placeholder {
   .previous,
   .next {
     position: static;
-    z-index: 10;
   }
   .previous {
     margin-right: 7rem;
