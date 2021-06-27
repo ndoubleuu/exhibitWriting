@@ -51,7 +51,7 @@ exhibitApp.hideHelp = () => {
         if (event.key === "Escape") {
             exhibitApp.helpContainer.classList.remove("displayed");
         }
-    })
+    });
 }
 
 // Method that will cause modal to fade out on exit (called in hideModal method)
@@ -199,6 +199,18 @@ exhibitApp.displayPaintings = (artworks) => {
         exhibitApp.nextPainting(i);
     });
 
+    // Display next painting (with arrow)
+    window.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+            artworks[i++];
+            if (i === 5) {
+                i = 0;
+            }
+
+            exhibitApp.nextPainting(i);
+        }
+    });
+
     // Display previous painting
     exhibitApp.previous.addEventListener("click", () => {
         artworks[i--];
@@ -207,6 +219,18 @@ exhibitApp.displayPaintings = (artworks) => {
         }
 
         exhibitApp.previousPainting(i);
+    });
+
+    // Display previous painting (with arrow)
+    window.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+            artworks[i--];
+            if (i < 0) {
+                i = 4;
+            }
+
+            exhibitApp.previousPainting(i);
+        }
     });
 }
 
