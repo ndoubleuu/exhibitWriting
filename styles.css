@@ -306,7 +306,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: -10rem;
 }
 
 .exitModal {
@@ -355,17 +354,17 @@ a:hover {
 
 .next,
 .previous {
-  position: relative;
+  position: absolute;
+  bottom: 55%;
+  z-index: 10;
 }
 
 .next {
-  left: 30rem;
-  bottom: 71.6rem;
+  right: 25%;
 }
 
 .previous {
-  right: 30rem;
-  bottom: 65rem;
+  left: 25%;
 }
 
 .linkContainer {
@@ -417,16 +416,28 @@ textarea::placeholder {
 }
 
 /* Media Queries */
+@media (max-width: 1550px) {
+  .next {
+    right: 20%;
+  }
+  .previous {
+    left: 20%;
+  }
+}
+
 @media (max-width: 1280px) {
   .helpContainer {
     justify-content: stretch;
     padding-top: 8rem;
   }
+  .next {
+    right: 10%;
+  }
+  .previous {
+    left: 10%;
+  }
 }
 @media (max-width: 1035px) {
-  main {
-    top: 32%;
-  }
   header {
     width: 60rem;
     display: flex;
@@ -434,6 +445,15 @@ textarea::placeholder {
   }
   header h2 {
     margin: 4rem 0 0 3rem;
+  }
+  main {
+    top: 32%;
+  }
+  .next {
+    right: 5%;
+  }
+  .previous {
+    left: 5%;
   }
 }
 
@@ -457,12 +477,15 @@ textarea::placeholder {
   .selection {
     padding-bottom: 10rem;
   }
+  .paintingsContainer {
+    margin-top: 3rem;
+  }
   .paintingsContainer h4 {
     margin-top: 0;
     max-width: 28rem;
   }
   form {
-    margin-top: 10rem;
+    margin-top: 3rem;
   }
   textarea {
     width: 40rem;
@@ -472,13 +495,17 @@ textarea::placeholder {
     top: 1.5rem;
     right: 2rem;
   }
+  .previous,
+  .next {
+    position: static;
+    z-index: 10;
+  }
   .previous {
-    right: 3rem;
-    bottom: 59rem;
+    margin-right: 7rem;
   }
   .next {
-    left: 3rem;
-    bottom: 65.6rem;
+    margin-top: -6.6rem;
+    margin-left: 7rem;
   }
 }
 
@@ -491,7 +518,7 @@ textarea::placeholder {
     width: 35rem;
   }
   .linkContainer {
-    width: 16%;
+    width: 10rem;
   }
   textarea {
     width: 35rem;
