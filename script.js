@@ -77,6 +77,74 @@ exhibitApp.postLabel = (i) => {
     })
 }
 
+// Method that displays NEXT painting with either form or label
+exhibitApp.nextPainting = (i) => {
+    if (exhibitApp.newPaintingsArray[i].label === undefined) {
+        exhibitApp.artpiece.innerHTML = `
+                <div class="imageContainer">
+                    <img src=${exhibitApp.newPaintingsArray[i].image} alt="${exhibitApp.newPaintingsArray[i].altText}" />
+                </div>
+                <div class="linkContainer">
+                    <a href=${exhibitApp.newPaintingsArray[i].link} target="_blank">Learn more</a>
+                </div>
+                <h4>${exhibitApp.newPaintingsArray[i].title}</h4>
+                <form>
+                    <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
+                    <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500" required></textarea>
+                    <button type="submit" class="post">Post label</button>
+                </form>
+            `;
+
+        exhibitApp.postLabel(i);
+    } else {
+        exhibitApp.artpiece.innerHTML = `
+                <div class="imageContainer">
+                    <img src=${exhibitApp.newPaintingsArray[i].image} alt="${exhibitApp.newPaintingsArray[i].altText}" />
+                </div>
+                <div class="linkContainer">
+                    <a href=${exhibitApp.newPaintingsArray[i].link} target="_blank">Learn more</a>
+                </div>
+                <h4>${exhibitApp.newPaintingsArray[i].title}</h4>
+                <p>${exhibitApp.newPaintingsArray[i].label}</p>
+            `;
+    }
+    exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
+}
+
+// Method that displays PREVIOUS painting with either form or label
+exhibitApp.previousPainting = (i) => {
+    if (exhibitApp.newPaintingsArray[i].label === undefined) {
+        exhibitApp.artpiece.innerHTML = `
+                <div class="imageContainer">
+                    <img src=${exhibitApp.newPaintingsArray[i].image} alt="${exhibitApp.newPaintingsArray[i].altText}" />
+                </div>
+                <div class="linkContainer">
+                    <a href=${exhibitApp.newPaintingsArray[i].link} target="_blank">Learn more</a>
+                </div>
+                <h4>${exhibitApp.newPaintingsArray[i].title}</h4>
+                <form>
+                    <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
+                    <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500" required></textarea>
+                    <button type="submit" class="post">Post label</button>
+                </form>
+            `;
+
+        exhibitApp.postLabel(i);
+    } else {
+        exhibitApp.artpiece.innerHTML = `
+                <div class="imageContainer">
+                    <img src=${exhibitApp.newPaintingsArray[i].image} alt="${exhibitApp.newPaintingsArray[i].altText}" />
+                </div>
+                <div class="linkContainer">
+                    <a href=${exhibitApp.newPaintingsArray[i].link} target="_blank">Learn more</a>
+                </div>
+                <h4>${exhibitApp.newPaintingsArray[i].title}</h4>
+                <p>${exhibitApp.newPaintingsArray[i].label}</p>
+            `;
+    }
+    exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
+}
+
 exhibitApp.displayPaintings = (artworks) => {
     let i = 0;
 
@@ -99,79 +167,24 @@ exhibitApp.displayPaintings = (artworks) => {
     exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
     exhibitApp.postLabel(i);
 
+    // Display next painting
     exhibitApp.next.addEventListener("click", () => {
         artworks[i++];
         if (i === 5) {
             i = 0;
         }
 
-        if (exhibitApp.newPaintingsArray[i].label === undefined) {
-            exhibitApp.artpiece.innerHTML = `
-                <div class="imageContainer">
-                    <img src=${artworks[i].image} alt="${artworks[i].altText}" />
-                </div>
-                <div class="linkContainer">
-                    <a href=${artworks[i].link} target="_blank">Learn more</a>
-                </div>
-                <h4>${artworks[i].title}</h4>
-                <form>
-                    <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
-                    <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500" required></textarea>
-                    <button type="submit" class="post">Post label</button>
-                </form>
-            `;
-
-            exhibitApp.postLabel(i);
-        } else {
-            exhibitApp.artpiece.innerHTML = `
-                <div class="imageContainer">
-                    <img src=${artworks[i].image} alt="${artworks[i].altText}" />
-                </div>
-                <div class="linkContainer">
-                    <a href=${artworks[i].link} target="_blank">Learn more</a>
-                </div>
-                <h4>${artworks[i].title}</h4>
-                <p>${artworks[i].label}</p>
-            `;
-        }
-        exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
+        exhibitApp.nextPainting(i);
     });
 
+    // Display previous painting
     exhibitApp.previous.addEventListener("click", () => {
         artworks[i--];
         if (i < 0) {
             i = 4;
         }
-        if (exhibitApp.newPaintingsArray[i].label === undefined) {
-            exhibitApp.artpiece.innerHTML = `
-                <div class="imageContainer">
-                    <img src=${artworks[i].image} alt="${artworks[i].altText}" />
-                </div>
-                <div class="linkContainer">
-                    <a href=${artworks[i].link} target="_blank">Learn more</a>
-                </div>
-                <h4>${artworks[i].title}</h4>
-                <form>
-                    <label for="label" class="srOnly">Write your own exhibit label for the painting</label>
-                    <textarea id="label" name="label" class="label" placeholder="How would you describe this painting?" maxlength="500" required></textarea>
-                    <button type="submit" class="post">Post label</button>
-                </form>
-            `;
 
-            exhibitApp.postLabel(i);
-        } else {
-            exhibitApp.artpiece.innerHTML = `
-                <div class="imageContainer">
-                    <img src=${artworks[i].image} alt="${artworks[i].altText}" />
-                </div>
-                <div class="linkContainer">
-                    <a href=${artworks[i].link} target="_blank">Learn more</a>
-                </div>
-                <h4>${artworks[i].title}</h4>
-                <p>${artworks[i].label}</p>
-            `;
-        }
-        exhibitApp.paintingsContainer.append(exhibitApp.artpiece);
+        exhibitApp.previousPainting(i);
     });
 }
 
